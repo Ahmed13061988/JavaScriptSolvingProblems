@@ -30,8 +30,33 @@ const calcTempAmplitude = function (tempretures) {
     if (tempretures[i] < min) min = tempretures[i];
   }
   //console.log(max);
-  console.log(min);
-  const amplitude = max - min;
-  console.log(amplitude);
+  //console.log(min);
+  const amplitude1 = max - min;
+  //console.log(amplitude1);
 };
 calcTempAmplitude(tempretures);
+
+// Problem 2:
+//Function should now receive two arrays of tempretures
+
+//Understanding the problem
+//1-With 2 arrays, should we implement the functionality twice? No
+
+// Divide to sub-problem
+//Merge two arrays
+
+const calcTempAmplitudeWith2Arrays = function (t1, t2) {
+  const tempretures = t1.concat(t2);
+  let max = tempretures[0];
+  let min = tempretures[0];
+  for (let i = 0; i < tempretures.length; i++) {
+    if (typeof tempretures[i] !== 'number') continue;
+    if (tempretures[i] > max) max = tempretures[i];
+    if (tempretures[i] < min) min = tempretures[i];
+  }
+  //console.log(max);
+  //console.log(min);
+  const amplitude2 = max - min;
+  console.log(amplitude2);
+};
+calcTempAmplitudeWith2Arrays([3, 5, 1], [9, 0, 5]);
