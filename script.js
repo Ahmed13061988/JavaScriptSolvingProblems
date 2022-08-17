@@ -1,5 +1,6 @@
 // // Remember, we're gonna use strict mode in all scripts now!
-// 'use strict';
+'use strict';
+//debugger;
 
 // // const x = 34;
 // // const calcAge = birthYear => 2022 - birthYear;
@@ -65,14 +66,34 @@ const measureKelvin = function () {
   const measurement = {
     types: 'temp',
     unit: 'celsius',
-    value: prompt('Degrees celsius:'),
+    //C Fix the bug
+    value: Number(prompt('Degrees celsius:')),
   };
-  console.log(measurement.value);
-  console.warn(measurement.value);
-  console.error(measurement.value);
+  //console.log(measurement);
+  //B Find the bug
+  // console.table(measurement);
+  //console.log(measurement.value);
+  //   console.warn(measurement.value);
+  //   console.error(measurement.value);
 
   let kelvin = measurement.value + 273;
   return kelvin;
 };
+//A identfy the bug
+//console.log(measureKelvin());
 
-console.log(measureKelvin());
+const calcTempAmplitudeWithBug = function (t1, t2) {
+  const tempretures = t1.concat(t2);
+  let max = tempretures[0];
+  let min = tempretures[0];
+  for (let i = 0; i < tempretures.length; i++) {
+    if (typeof tempretures[i] !== 'number') continue;
+    if (tempretures[i] > max) max = tempretures[i];
+    if (tempretures[i] < min) min = tempretures[i];
+  }
+  //console.log(max);
+  //console.log(min);
+  const amplitude2 = max - min;
+  console.log(amplitude2);
+};
+calcTempAmplitudeWithBug([3, 5, 1], [9, 4, 5]);
