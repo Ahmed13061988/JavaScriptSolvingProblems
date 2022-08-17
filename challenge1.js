@@ -9,7 +9,8 @@
 const printForecast = function (arr) {
   let x = ' ';
   for (let i = 0; i < arr.length; i++) {
-    x += arr[i] + `°C in ${i + 1} days `;
+    if (i === 0) x += `... ` + arr[i] + `°C in ${i + 1} days... `;
+    if (i !== 0) x += arr[i] + `°C in ${i + 1} days... `;
   }
   console.log(x);
 };
